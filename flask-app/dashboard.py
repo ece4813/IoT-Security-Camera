@@ -350,40 +350,14 @@ app.layout = html.Div(
             A web application framework to show IoT Security Camera analytics.
         '''),
 
-        # dcc.Graph(
-        #     id='graph-1', animate=True,
-        #     figure={
-        #         'data': [
-        #             {'x': ["humans"], 'y': [humanobjects], 'type': 'bar', 'name': 'Human Detections'},
-        #             # {'x': ["false-positives"], 'y': [fpobjects], 'type': 'bar', 'name': 'False Positives'},
-        #             {'x': ["weapons"], 'y': [weaponobjects], 'type': 'bar', 'name': 'Weapon Detections'},
-        #         ],
-        #         'layout': {
-        #             'title': 'Human vs False-positives vs Weapon detections',
-        #             'xaxis' : dict(
-        #                 title='category',
-        #                 titlefont=dict(
-        #                 family='Courier New, monospace',
-        #                 size=20,
-        #                 color='#7f7f7f'
-        #             )),
-        #             'yaxis' : dict(
-        #                 title='# detections',
-        #                 titlefont=dict(
-        #                 family='Helvetica, monospace',
-        #                 size=20,
-        #                 color='#7f7f7f'
-        #             ))
-        #         }
-        #     }
-        # ),
+       
          dcc.Graph(
             id='example-graph-3',
             figure={
                 'data': [
-                    {'x':list(months_dict.keys()) , 'y': months_dict.values(), 'type': 'markers', 'name': 'Human Detections'},
-                    # {'x': list(fpmonths_dict.keys()), 'y': fpmonths_dict.values(), 'type': 'markers', 'name': 'False-positives'},
-                    {'x': list(wmonths_dict.keys()), 'y': wmonths_dict.values(), 'type': 'markers', 'name': 'Weapons'},
+                    {'x':list(months_dict.keys()) , 'y': months_dict.values(), 'type': 'linear', 'mode': 'lines+markers', 'marker': {'size': 12}, 'name': 'Human Detections'},
+                    {'x': list(fpmonths_dict.keys()), 'y': fpmonths_dict.values(), 'mode': 'lines+markers', 'marker': {'size': 12}, 'name': 'False-positives'},
+                    {'x': list(wmonths_dict.keys()), 'y': wmonths_dict.values(), 'type': 'linear', 'mode': 'lines+markers','marker': {'size': 12}, 'name': 'Weapons'},
                 ],
                 'layout': {
                     'title': 'Rate of Detections Per Month',
@@ -409,9 +383,9 @@ app.layout = html.Div(
             id='example-graph-2',
             figure={
                 'data': [
-                    {'x': list(days_dict.keys()), 'y': days_dict.values(), 'type': 'markers', 'name': 'Human Detections'},
-                    # {'x': list(fpdays_dict.keys()), 'y': fpdays_dict.values(), 'type': 'markers', 'name': 'False-positives'},
-                    {'x': list(wdays_dict.keys()), 'y': wdays_dict.values(), 'type': 'markers', 'name': 'Wepaons'},
+                    {'x': list(days_dict.keys()), 'y': days_dict.values(), 'mode': 'lines+markers', 'marker': {'size': 12}, 'name': 'Human Detections'},
+                    {'x': list(fpdays_dict.keys()), 'y': fpdays_dict.values(), 'mode': 'lines+markers', 'marker': {'size': 12}, 'name': 'False-positives'},
+                    {'x': list(wdays_dict.keys()), 'y': wdays_dict.values(), 'mode': 'lines+markers', 'marker': {'size': 12}, 'name': 'Wepaons'},
                 ],
                 'layout': {
                     'title': 'Rate of Detections Per Day',
@@ -438,9 +412,9 @@ app.layout = html.Div(
             id='example-graph-4',
             figure={
                 'data': [
-                    {'x':list(hours_dict.keys()) , 'y': hours_dict.values(), 'type': 'markers', 'name': 'Human Detections'},
-                    # {'x': list(fphours_dict.keys()), 'y': fphours_dict.values(), 'type': 'markers', 'name': 'False-positives'},
-                    {'x': list(whours_dict.keys()), 'y': whours_dict.values(), 'type': 'markers', 'name': 'Weapons'},
+                    {'x':list(hours_dict.keys()) , 'y': hours_dict.values(), 'mode': 'lines+markers', 'marker': {'size': 12},'name': 'Human Detections'},
+                    {'x': list(fphours_dict.keys()), 'y': fphours_dict.values(), 'mode': 'lines+markers', 'marker': {'size': 12},'name': 'False-positives'},
+                    {'x': list(whours_dict.keys()), 'y': whours_dict.values(), 'mode': 'lines+markers', 'marker': {'size': 12}, 'name': 'Weapons'},
                 ],
                 'layout': {
                     'title': 'Rate of Detections per hour',
@@ -466,9 +440,9 @@ app.layout = html.Div(
             id='example-graph-5',
             figure={
                 'data': [
-                    {'x':list(mins_dict.keys()) , 'y': mins_dict.values(), 'type': 'markers', 'name': 'Human Detections'},
-                    # {'x': list(fpmins_dict.keys()), 'y': fpmins_dict.values(), 'type': 'markers', 'name': 'False-positives'},
-                    {'x': list(wmins_dict.keys()), 'y': wmins_dict.values(), 'type': 'markers', 'name': 'Weapons'},
+                    {'x':list(mins_dict.keys()) , 'y': mins_dict.values(), 'mode': 'markers', 'marker': {'size': 12}, 'name': 'Human Detections'},
+                    {'x': list(fpmins_dict.keys()), 'y': fpmins_dict.values(), 'mode': 'markers', 'marker': {'size': 12},'name': 'False-positives'},
+                    {'x': list(wmins_dict.keys()), 'y': wmins_dict.values(), 'mode': 'markers', 'marker': {'size': 12}, 'name': 'Weapons'},
                 ],
                 'layout': {
                     'title': 'Rate of Detections Per Each Minute of the Hour',
